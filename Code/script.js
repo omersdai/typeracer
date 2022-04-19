@@ -1,6 +1,7 @@
 const title = document.getElementById('title');
 const gameText = document.getElementById('gameText');
 const textInput = document.getElementById('textInput');
+const carEl = document.getElementById('car');
 
 const startBtn = document.getElementById('startBtn');
 const rollBtn = document.getElementById('rollBtn');
@@ -120,6 +121,7 @@ function startGame() {
 
   startBtn.innerText = count;
   title.innerText = `Start typing in ${count}`;
+  carEl.style.transform = `translateX(0%)`;
   let interval = setInterval(() => {
     if (count > 1) {
       startBtn.innerText = --count;
@@ -146,6 +148,9 @@ function updateClock() {
 
   minuteEl.innerText = parseInt(seconds / 60);
   secondEl.innerText = second < 10 ? `0${second}` : second;
+
+  console.log(wordIndex/words.length * 100);
+  carEl.style.transform = `translateX(${parseInt(wordIndex/words.length * 100)}%)`
 
   wpmEl.innerText = Math.round((wordIndex * 60) / seconds); // word per minute
   if (correctPressCount + incorrectPressCount > 0) {
