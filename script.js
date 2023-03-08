@@ -261,6 +261,5 @@ function updateAccuracy() {
 }
 
 function getRandomSong() {
-  return songs[5];
   return songs[Math.floor(Math.random() * songs.length)];
 }
